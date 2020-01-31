@@ -5,6 +5,7 @@
 
 add_subdirectory(address)
 add_subdirectory(block)
+add_subdirectory(chain)
 add_subdirectory(cid)
 add_subdirectory(ticket)
 add_subdirectory(tipset)
