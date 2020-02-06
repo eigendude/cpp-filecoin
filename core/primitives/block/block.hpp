@@ -1,5 +1,9 @@
+#ifndef CPP_FILECOIN_CORE_PRIMITIVES_BLOCK_BLOCK_HPP
+#define CPP_FILECOIN_CORE_PRIMITIVES_BLOCK_BLOCK_HPP
+
 #include <boost/optional.hpp>
 
+#include "crypto/signature/signature.hpp"
 #include "primitives/address/address.hpp"
 #include "primitives/address/address_codec.hpp"
 #include "primitives/big_int.hpp"
@@ -8,7 +12,6 @@
 #include "primitives/ticket/epost_ticket_codec.hpp"
 #include "primitives/ticket/ticket.hpp"
 #include "primitives/ticket/ticket_codec.hpp"
-#include "crypto/signature/signature.hpp"
 
 namespace fc::primitives::block {
   using primitives::BigInt;
@@ -70,3 +73,5 @@ namespace fc::primitives::block {
     return s;
   }
 }  // namespace fc::primitives::block
+
+#endif  // CPP_FILECOIN_CORE_PRIMITIVES_BLOCK_BLOCK_HPP
