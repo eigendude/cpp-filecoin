@@ -20,7 +20,11 @@
 
 namespace fc::storage::hamt {
   enum class HamtError { EXPECTED_CID = 1, NOT_FOUND, MAX_DEPTH };
+}  // namespace fc::storage::hamt
 
+OUTCOME_HPP_DECLARE_ERROR(fc::storage::hamt, HamtError);
+
+namespace fc::storage::hamt {
   using fc::primitives::UBigInt;
   using Value = ipfs::IpfsDatastore::Value;
 
@@ -159,7 +163,5 @@ namespace fc::storage::hamt {
     Node::Item root_;
   };
 }  // namespace fc::storage::hamt
-
-OUTCOME_HPP_DECLARE_ERROR(fc::storage::hamt, HamtError);
 
 #endif  // CPP_FILECOIN_STORAGE_HAMT_HAMT_HPP
