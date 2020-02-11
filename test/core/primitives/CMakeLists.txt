@@ -5,6 +5,7 @@
 
 add_subdirectory(address)
 add_subdirectory(block)
+add_subdirectory(rle_bitset)
 add_subdirectory(ticket)
 add_subdirectory(tipset)
 
