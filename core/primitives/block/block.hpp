@@ -34,6 +34,11 @@ namespace fc::primitives::block {
     uint64_t fork_signaling;
   };
 
+  struct MsgMeta {
+    CID bls_messages;
+    CID secpk_messages;
+  };
+
   inline bool operator==(const BlockHeader &lhs, const BlockHeader &rhs) {
     return lhs.miner == rhs.miner && lhs.ticket == rhs.ticket
            && lhs.epost_proof == rhs.epost_proof && lhs.parents == rhs.parents
@@ -46,10 +51,7 @@ namespace fc::primitives::block {
            && lhs.fork_signaling == rhs.fork_signaling;
   }
 
-  template <class Stream,
-            typename = std::enable_if_t<
-                std::remove_reference_t<Stream>::is_cbor_encoder_stream>>
-  Stream &operator<<(Stream &&s, const BlockHeader &block) {
+  CBOR_ENCODE(BlockHeader, block) {
     return s << (s.list() << block.miner << block.ticket << block.epost_proof
                           << block.parents << block.parent_weight
                           << block.height << block.parent_state_root
@@ -58,15 +60,21 @@ namespace fc::primitives::block {
                           << block.block_sig << block.fork_signaling);
   }
 
-  template <class Stream,
-            typename = std::enable_if_t<
-                std::remove_reference_t<Stream>::is_cbor_decoder_stream>>
-  Stream &operator>>(Stream &&s, BlockHeader &block) {
+  CBOR_DECODE(BlockHeader, block) {
     s.list() >> block.miner >> block.ticket >> block.epost_proof
         >> block.parents >> block.parent_weight >> block.height
         >> block.parent_state_root >> block.parent_message_receipts
         >> block.messages >> block.bls_aggregate >> block.timestamp
         >> block.block_sig >> block.fork_signaling;
+    return s;
+  }
+
+  CBOR_ENCODE(MsgMeta, meta) {
+    return s << (s.list() << meta.bls_messages << meta.secpk_messages);
+  }
+
+  CBOR_DECODE(MsgMeta, meta) {
+    s.list() >> meta.bls_messages >> meta.secpk_messages;
     return s;
   }
 }  // namespace fc::primitives::block
