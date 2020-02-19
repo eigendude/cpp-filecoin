@@ -102,19 +102,23 @@ if (CLANG_FORMAT)
   include(cmake/clang-format.cmake)
 endif ()
 
-add_subdirectory(deps)
+if (HUNTER_ENABLED)
+  add_subdirectory(deps)
+endif()
 
 include_directories(
     # project includes
     ${PROJECT_SOURCE_DIR}/core
 )
 
-include_directories(
-    SYSTEM
-    # system includes
-    deps/outcome
-    deps/tinycbor/src
-)
+if (HUNTER_ENABLED)
+  include_directories(
+      SYSTEM
+      # system includes
+      deps/outcome
+      deps/tinycbor/src
+  )
+endif()
 
 add_subdirectory(core)
 
