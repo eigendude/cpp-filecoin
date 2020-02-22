@@ -13,6 +13,7 @@ set(FILECOIN_FFI_LIB
 file(MAKE_DIRECTORY ${FILECOIN_FFI_INCLUDES})
 
 set(ENV{PKG_CONFIG_PATH}  "${PKG_CONFIG_PATH}:${FILECOIN_FFI_PATH}")
+set(ENV{CARGO_TOOLCHAIN}  "${CARGO_TOOLCHAIN}")
 
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(PKG_FILECOIN filecoin)
@@ -33,7 +34,7 @@ endif (NOT PKG_FILECOIN_FOUND)
 
 add_custom_target(
         filecoin_ffi_build
-        COMMAND make
+        COMMAND make CARGO_TOOLCHAIN=${CARGO_TOOLCHAIN}
         WORKING_DIRECTORY ${FILECOIN_FFI_PATH}
 )
 add_custom_target(
