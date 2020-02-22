@@ -3,60 +3,60 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-add_custom_target(adt
+add_custom_target(filecoin_adt
     DEPENDS
-    address_key
-    array
-    balance_table
-    map
-    multimap
-    uvarint_key
+    filecoin_address_key
+    filecoin_array
+    filecoin_balance_table
+    filecoin_map
+    filecoin_multimap
+    filecoin_uvarint_key
     )
 
-add_library(array INTERFACE)
-target_link_libraries(array INTERFACE
-    amt
+add_library(filecoin_array INTERFACE)
+target_link_libraries(filecoin_array INTERFACE
+    filecoin_amt
     )
 
-add_library(map INTERFACE)
-target_link_libraries(map INTERFACE
-    hamt
+add_library(filecoin_map INTERFACE)
+target_link_libraries(filecoin_map INTERFACE
+    filecoin_hamt
     )
 
-add_library(balance_table_hamt
+add_library(filecoin_balance_table_hamt
     impl/balance_table_hamt.cpp
     )
-target_link_libraries(balance_table_hamt
-    address_key
-    hamt
+target_link_libraries(filecoin_balance_table_hamt
+    filecoin_address_key
+    filecoin_hamt
     )
 
-add_library(multimap
+add_library(filecoin_multimap
     impl/multimap.cpp
     )
-target_link_libraries(multimap
-    amt
-    hamt
+target_link_libraries(filecoin_multimap
+    filecoin_amt
+    filecoin_hamt
     )
 
-add_library(uvarint_key
+add_library(filecoin_uvarint_key
     uvarint_key.cpp
     )
-target_link_libraries(uvarint_key
+target_link_libraries(filecoin_uvarint_key
     p2p::p2p_uvarint
     )
 
-add_library(address_key
+add_library(filecoin_address_key
     address_key.cpp
     )
-target_link_libraries(address_key
-    address
+target_link_libraries(filecoin_address_key
+    filecoin_address
     )
 
-add_library(balance_table
+add_library(filecoin_balance_table
     balance_table.cpp
     )
-target_link_libraries(balance_table
-    address_key
-    map
+target_link_libraries(filecoin_balance_table
+    filecoin_address_key
+    filecoin_map
     )

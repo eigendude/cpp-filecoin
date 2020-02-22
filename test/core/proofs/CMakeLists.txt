@@ -3,10 +3,13 @@
 #SPDX - License - Identifier : Apache - 2.0
 #
 
-addtest(proofs_test proofs_test.cpp)
+addtest(filecoin_proofs_test
+    proofs_test.cpp
+    )
 
-target_link_libraries( proofs_test
-        buffer
-        proofs
-        piece
-        base_fs_test)
+target_link_libraries(filecoin_proofs_test
+    filecoin_buffer
+    filecoin_proofs
+    filecoin_piece
+    filecoin_base_fs_test
+    )

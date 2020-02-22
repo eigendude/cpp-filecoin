@@ -3,12 +3,12 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-add_library(proof_verifier
+add_library(filecoin_proof_verifier
         impl/proof_verifier_impl.cpp
         )
 
-target_link_libraries(proof_verifier
-        outcome
-        sector
-        proofs
+target_link_libraries(filecoin_proof_verifier
+        filecoin_outcome
+        filecoin_sector
+        filecoin_proofs
         )

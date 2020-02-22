@@ -5,7 +5,7 @@
 
 add_subdirectory(network/marshalling/protobuf)
 
-add_library(graphsync
+add_library(filecoin_graphsync
     common.cpp
     extension.cpp
     graphsync_impl.cpp
@@ -25,14 +25,14 @@ add_library(graphsync
     network/marshalling/response_builder.cpp
     )
 
-target_include_directories(graphsync PRIVATE "${CMAKE_BINARY_DIR}/generated/storage/ipfs/graphsync/impl/network/marshalling")
+target_include_directories(filecoin_graphsync PRIVATE "${CMAKE_BINARY_DIR}/generated/storage/ipfs/graphsync/impl/network/marshalling")
 
-target_link_libraries(graphsync
+target_link_libraries(filecoin_graphsync
     Boost::boost
     p2p::subscription
-    cid
-    buffer
-    cbor
-    logger
-    graphsync_proto
+    filecoin_cid
+    filecoin_buffer
+    filecoin_cbor
+    filecoin_logger
+    filecoin_graphsync_proto
     )

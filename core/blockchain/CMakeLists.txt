@@ -7,46 +7,46 @@ add_subdirectory(block_validator)
 add_subdirectory(message_pool)
 add_subdirectory(production)
 
-add_library(weight_calculator
+add_library(filecoin_weight_calculator
     impl/weight_calculator_impl.cpp
     )
-target_link_libraries(weight_calculator
-    state_tree
-    tipset
+target_link_libraries(filecoin_weight_calculator
+    filecoin_state_tree
+    filecoin_tipset
     )
 
-add_library(sync_manager
+add_library(filecoin_sync_manager
     impl/sync_manager_impl.cpp
     )
-target_link_libraries(sync_manager
-    block
+target_link_libraries(filecoin_sync_manager
+    filecoin_block
     Boost::boost
-    cid
-    syncer_state
-    sync_bucket_set
-    sync_target_bucket
-    tipset
+    filecoin_cid
+    filecoin_syncer_state
+    filecoin_sync_bucket_set
+    filecoin_sync_target_bucket
+    filecoin_tipset
     )
 
-add_library(syncer_state
+add_library(filecoin_syncer_state
     syncer_state.cpp
     )
-target_link_libraries(syncer_state
-    clock
-    tipset
+target_link_libraries(filecoin_syncer_state
+    filecoin_clock
+    filecoin_tipset
     )
 
-add_library(sync_target_bucket
+add_library(filecoin_sync_target_bucket
     impl/sync_target_bucket.cpp
     )
-target_link_libraries(sync_target_bucket
+target_link_libraries(filecoin_sync_target_bucket
     Boost::boost
-    tipset
+    filecoin_tipset
     )
 
-add_library(sync_bucket_set
+add_library(filecoin_sync_bucket_set
     impl/sync_bucket_set.cpp
     )
-target_link_libraries(sync_bucket_set
-    sync_target_bucket
+target_link_libraries(filecoin_sync_bucket_set
+    filecoin_sync_target_bucket
     )

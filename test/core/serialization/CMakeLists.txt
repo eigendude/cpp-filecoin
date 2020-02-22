@@ -3,13 +3,13 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-addtest(serialization_vectors_test
+addtest(filecoin_serialization_vectors_test
     serialization_vectors_test.cpp
     )
-target_link_libraries(serialization_vectors_test
-    rpc
+target_link_libraries(filecoin_serialization_vectors_test
+    filecoin_rpc
     )
-target_include_directories(serialization_vectors_test PUBLIC
+target_include_directories(filecoin_serialization_vectors_test PUBLIC
   "${CMAKE_CURRENT_BINARY_DIR}"
   )
 

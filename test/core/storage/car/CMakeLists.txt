@@ -3,14 +3,14 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-addtest(car_test
+addtest(filecoin_car_test
     car_test.cpp
     )
-target_link_libraries(car_test
-    car
-    ipfs_datastore_in_memory
+target_link_libraries(filecoin_car_test
+    filecoin_car
+    filecoin_ipfs_datastore_in_memory
     )
-target_include_directories(car_test PUBLIC
+target_include_directories(filecoin_car_test PUBLIC
   "${CMAKE_CURRENT_BINARY_DIR}"
   )
 

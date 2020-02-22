@@ -3,14 +3,14 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-add_library(miner_actor
+add_library(filecoin_miner_actor
     miner_actor.cpp
     )
-target_link_libraries(miner_actor
-    address
-    array
-    cbor
-    map
-    rle_bitset
-    uvarint_key
+target_link_libraries(filecoin_miner_actor
+    filecoin_address
+    filecoin_array
+    filecoin_cbor
+    filecoin_map
+    filecoin_rle_bitset
+    filecoin_uvarint_key
     )

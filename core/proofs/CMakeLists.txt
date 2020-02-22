@@ -3,18 +3,18 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-add_library(proofs
+add_library(filecoin_proofs
         proofs.cpp
         proofs_error.cpp
         )
 
-target_link_libraries(proofs
+target_link_libraries(filecoin_proofs
         filecoin_ffi
-        outcome
-        blob
-        logger
-        comm_cid
-        piece
-        address
-        sector
+        filecoin_outcome
+        filecoin_blob
+        filecoin_logger
+        filecoin_comm_cid
+        filecoin_piece
+        filecoin_address
+        filecoin_sector
         )

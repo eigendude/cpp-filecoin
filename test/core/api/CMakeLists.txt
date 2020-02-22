@@ -3,9 +3,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-addtest(api_json_test
+addtest(filecoin_api_json_test
     json_test.cpp
     )
-target_link_libraries(api_json_test
-    rpc
+target_link_libraries(filecoin_api_json_test
+    filecoin_rpc
     )

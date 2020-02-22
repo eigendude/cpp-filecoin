@@ -3,19 +3,19 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-addtest(balance_table_hamt_test
+addtest(filecoin_balance_table_hamt_test
     balance_table_hamt_test.cpp
     )
-target_link_libraries(balance_table_hamt_test
-    balance_table_hamt
-    ipfs_datastore_in_memory
+target_link_libraries(filecoin_balance_table_hamt_test
+    filecoin_balance_table_hamt
+    filecoin_ipfs_datastore_in_memory
     )
 
-addtest(multimap_test
+addtest(filecoin_multimap_test
     multimap_test.cpp
     )
-target_link_libraries(multimap_test
-    hamt
-    multimap
-    ipfs_datastore_in_memory
+target_link_libraries(filecoin_multimap_test
+    filecoin_hamt
+    filecoin_multimap
+    filecoin_ipfs_datastore_in_memory
     )

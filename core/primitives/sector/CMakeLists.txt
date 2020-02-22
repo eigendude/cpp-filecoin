@@ -1,6 +1,11 @@
-add_library(sector
+#
+# Copyright Soramitsu Co., Ltd. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
+
+add_library(filecoin_sector
         sector.cpp)
 
-target_link_libraries(sector
-        outcome
+target_link_libraries(filecoin_sector
+        filecoin_outcome
         )

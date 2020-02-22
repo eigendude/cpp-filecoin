@@ -3,18 +3,18 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-add_library(block_validator
+add_library(filecoin_block_validator
     impl/block_validator_impl.cpp
     impl/syntax_rules.cpp
     impl/consensus_rules.cpp
     )
-target_link_libraries(block_validator
-    bls_provider
-    outcome
-    buffer
-    address
-    clock
-    interpreter
-    tipset
-    power_table
+target_link_libraries(filecoin_block_validator
+    filecoin_bls_provider
+    filecoin_outcome
+    filecoin_buffer
+    filecoin_address
+    filecoin_clock
+    filecoin_interpreter
+    filecoin_tipset
+    filecoin_power_table
     )
