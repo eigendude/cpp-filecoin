@@ -11,7 +11,7 @@ add_library(ipfs_merkledag_service_protobuf
     ${PB_BUILD_DIR}/merkledag.pb.h
     ${PB_BUILD_DIR}/merkledag.pb.cc
     )
-target_include_directories(ipfs_merkledag_service_protobuf PUBLIC ${PB_BUILD_DIR})
+target_include_directories(ipfs_merkledag_service_protobuf PUBLIC $<BUILD_INTERFACE:${PB_BUILD_DIR}>)
 target_link_libraries(ipfs_merkledag_service_protobuf
     protobuf::libprotobuf
     )
