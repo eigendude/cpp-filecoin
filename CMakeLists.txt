@@ -25,6 +25,9 @@ HunterGate(
 
 project(cpp_filecoin)
 
+# Expose cmake modules for finding packages
+list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/modules)
+
 if (NOT EXISTS "${CMAKE_TOOLCHAIN_FILE}")
   # https://cgold.readthedocs.io/en/latest/tutorials/toolchain/globals/cxx-standard.html#summary
   set(CMAKE_CXX_STANDARD 17)

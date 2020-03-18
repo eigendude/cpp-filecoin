@@ -1,3 +1,6 @@
+# Required for linking protobuf
+#find_package(Zlib REQUIRED)
+
 function(disable_clang_tidy target)
   set_target_properties(${target} PROPERTIES
       C_CLANG_TIDY ""
