@@ -13,6 +13,8 @@ OUTCOME_CPP_DEFINE_CATEGORY(fc::fslock, FSLockError, e) {
       return "FileLock: file is locked";
     case (FSLockError::IS_DIRECTORY):
       return "FileLock: cannot lock directory";
+    case (FSLockError::NOT_IMPLEMENTED):
+      return "FileLock: not implemented";
     case (FSLockError::UNKNOWN):
       return "FileLock: unknown error";
   }

@@ -59,7 +59,9 @@ fc::outcome::result<std::shared_ptr<Repository>> FileSystemRepository::create(
       repo_path + fc::storage::filestore::DELIMITER + kRepositoryLock;
   std::unique_ptr<fslock::Locker> fs_locker =
       std::make_unique<fslock::Locker>();
-  OUTCOME_TRY(fs_locker->lock(lock_filename));
+  auto lockResult = fs_locker->lock(lock_filename);
+  if (!lockResult)
+    logger_->error("Continuing without filesystem lock: " + lockResult.error().message());
 
   // load config if exists
   auto config_filename =

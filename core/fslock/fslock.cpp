@@ -16,6 +16,9 @@ namespace fc::fslock {
   // TODO(artyom-yurin): [FIL-115] Should be unlocked if process died
   outcome::result<boost::interprocess::file_lock> Locker::lock(
       const std::string &file_lock_path) {
+    // TODO
+    return FSLockError::NOT_IMPLEMENTED;
+
     try {
       if (boost::filesystem::is_directory(file_lock_path))
         return FSLockError::IS_DIRECTORY;
@@ -34,8 +37,10 @@ namespace fc::fslock {
     }
   }
 
+  /* TODO
   boost::interprocess::named_mutex Locker::mutex =
       boost::interprocess::named_mutex(
           boost::interprocess::open_or_create,
           "fslock");
+  */
 }  // namespace fc::fslock
